@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , tweet = require('./routes/tweet')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose');
@@ -19,23 +20,34 @@ app.configure(function(){
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
-  app.use(express.methodOverride());
+  app.use(express.cookieParser(process.env.SECRET || 'fake_secret'));
+  app.use(express.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.methodOverride());
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
   mongoose.connect(process.env.MONGOLAB_URI || 'localhost');
+
+  // session stuff
+  app.use(express.cookieParser(process.env.SECRET || 'fake_secret'));
+  app.use(express.session());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 // GETS
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/users/new', user.create);
+app.get('/tweets', tweet.list);
 
 // PUTS
 app.post('/users/new', user.create_post);
+app.post('/user/delete', user.index_delete);
+app.post('/tweet/new', tweet.post_tweet);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

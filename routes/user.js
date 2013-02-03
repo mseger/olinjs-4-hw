@@ -22,7 +22,8 @@ exports.create_post = function(req, res){
 	// post action for the newly created user
 
 	// save if this user doesn't currently exist
-	if(!User.findOne({name: req.body.name})){
+	// NOTE THIS ISN'T QUITE WORKING YET!!!
+	if(User.findOne({name: req.body.name})!= undefined){
 		// save the new User
 		var newUser = new User({name: req.body.name});
 		newUser.save(function (err){
@@ -35,3 +36,19 @@ exports.create_post = function(req, res){
 		console.log("Sorry, that username has been taken.");
 	};
 };
+
+// remove an individual user
+exports.index_delete = function(req, res){
+	var users = User.findOneAndRemove({_id: req.body.id}).exec(function (err, docs){
+		if (err)
+			return console.log("can't remove user")
+		res.redirect('/users');
+	});
+};
+
+
+
+
+
+
+
