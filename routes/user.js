@@ -22,7 +22,7 @@ exports.create_post = function(req, res){
 	// post action for the newly created user
 
 	// save if this user doesn't currently exist
-	if(User.find({name: req.body.name})!= null){
+	if(!User.findOne({name: req.body.name})){
 		// save the new User
 		var newUser = new User({name: req.body.name});
 		newUser.save(function (err){
