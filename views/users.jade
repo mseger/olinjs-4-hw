@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1 User directory
+	div
+		each user, i in users
+			div(value=user, id="user_id") Username: #{user.name}
+			br 
+			br

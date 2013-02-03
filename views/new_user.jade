@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+	h1 New User? No problem
+	p Create a new Account
+	div 
+		form(name="input_form", action="/users/new", method="post")
+			| Username: 
+			input(type="text", name="name")
+
+			input(type="submit", value="Create my account!")
