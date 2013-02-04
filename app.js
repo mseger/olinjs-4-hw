@@ -39,7 +39,7 @@ app.configure('development', function(){
 });
 
 // GETS
-app.get('/', routes.index);
+app.get('/', tweet.list);
 app.get('/users', user.list);
 app.get('/users/new', user.create);
 app.get('/tweets', tweet.list);
