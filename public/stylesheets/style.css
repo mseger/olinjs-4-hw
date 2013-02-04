@@ -20,6 +20,7 @@ h1{
 	float: left;
 	display: inline-block;
 	padding-left:35px;
+	padding-top:35px;
 	width:200px;
 }
 
@@ -38,4 +39,9 @@ h1{
 
 #sign_up_link{
 	font-size: 10px;
+}
+
+#login_dialog{
+	text-align: center;
+	padding-top: 130px;
 }

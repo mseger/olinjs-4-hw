@@ -48,6 +48,7 @@ app.get('/tweets', tweet.list);
 app.post('/users/new', user.create_post);
 app.post('/user/delete', user.index_delete);
 app.post('/tweet/new', tweet.post_tweet);
+app.post('/login', tweet.login);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

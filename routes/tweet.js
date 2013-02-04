@@ -22,5 +22,14 @@ exports.post_tweet = function(req, res){
 	res.redirect('/tweets');
 };
 
-// delete an existing tweet
+// log-in to account
+exports.login = function(req, res){
+	// start a user session on login
+	var curr_user = new User({name: req.body.username});
+	curr_user.save(function (err){
+		if(err)
+			return console.log("Couldn't log in current user");
+		req.sessions.user = curr_user;
+	});
+};
 
