@@ -12,7 +12,7 @@ exports.list = function(req, res){
 // post a newly-composed tweet
 exports.post_tweet = function(req, res){
 	// post action for the newly created tweet
-
+	console.log("MADE IT INTO THE POST TWEET DIALOG!!");
 	// save the new tweet
 	var newTweet = new Tweet({name: 'Put Current User Here', text_body: req.body.tweet_body});
 	newTweet.save(function (err){
