@@ -13,7 +13,7 @@ block content
 	div(id="display_tweets")
 		each tweet, i in tweets
 			div(value=tweet, id="tweet_id") 
-				| #{tweet.username}
+				b #{tweet.username}
 				br
 				| #{tweet.text_body}
 			br
