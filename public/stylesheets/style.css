@@ -11,7 +11,7 @@ a {
 
 h1{
 	font-family: ‘Lucida Console’, Monaco, monospace;	
-	font-size: 22px; 
+	font-size: 18px; 
 	color: #4099FF;
 	text-align: center;
 }
@@ -19,9 +19,8 @@ h1{
 #compose_tweet_dialog{
 	float: left;
 	display: inline-block;
-	float:left;
+	padding-left:35px;
 	width:200px;
-	padding-top: 20px;
 }
 
 #display_tweets{
@@ -35,4 +34,8 @@ h1{
 #tweet_id{
 	padding-top: 5px;
 	padding-left: 20px;
+}
+
+#sign_up_link{
+	font-size: 10px;
 }
