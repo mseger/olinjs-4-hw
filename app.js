@@ -43,6 +43,7 @@ app.get('/', user.login_or_tweets);
 app.get('/users', user.list);
 app.get('/users/new', user.create);
 app.get('/tweets', tweet.list);
+app.get('/tweets/delete_all', tweet.delete_all);
 
 // PUTS
 app.post('/users/new', user.create_post);

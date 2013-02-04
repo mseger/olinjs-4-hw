@@ -26,3 +26,10 @@ exports.post_tweet = function(req, res){
 	res.redirect('/tweets');
 };
 
+// clear our db and get rid of all tweets hangin' around
+exports.delete_all = function(req, res){
+	Tweet.remove({}, function(err){
+		console.log('removed tweets collection');
+		res.redirect('/tweets');
+	})
+}
