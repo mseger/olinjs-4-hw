@@ -39,6 +39,7 @@ exports.create_post = function(req, res){
 				if(err)
 					console.log("Unable to save user.");
 				})
+				req.session.user = newUser;
 				res.redirect('/tweets');
 		}else{
 			// otherwise, user exists, log it (PUT A POP-UP IN HERE)

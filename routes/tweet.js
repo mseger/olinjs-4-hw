@@ -2,11 +2,16 @@ var Tweet = require('../models/tweet')
 
 // list all tweets
 exports.list = function(req, res){
-	var tweets = Tweet.find({}).exec(function (err, docs){
-		if (err)
-			return console.log("FAIL WHALE. Couldn't retrieve your tweets.");
-		res.render('tweets', {tweets: docs, title: 'Twitter'});
-	});
+	if(!req.session.user){
+		// re-direct to login page
+		res.redirect('/users/new');
+	}else{
+		var tweets = Tweet.find({}).exec(function (err, docs){
+			if (err)
+				return console.log("FAIL WHALE. Couldn't retrieve your tweets.");
+			res.render('tweets', {tweets: docs.reverse(), title: 'Twitter'});
+		});
+	}
 };
 
 // post a newly-composed tweet
