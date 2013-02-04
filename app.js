@@ -39,7 +39,7 @@ app.configure('development', function(){
 });
 
 // GETS
-app.get('/', tweet.list);
+app.get('/', user.login_or_tweets);
 app.get('/users', user.list);
 app.get('/users/new', user.create);
 app.get('/tweets', tweet.list);
@@ -48,7 +48,7 @@ app.get('/tweets', tweet.list);
 app.post('/users/new', user.create_post);
 app.post('/user/delete', user.index_delete);
 app.post('/tweet/new', tweet.post_tweet);
-app.post('/login', tweet.login);
+app.post('/login', user.login_post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

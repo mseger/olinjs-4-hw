@@ -3,7 +3,7 @@ extends layout
 block content
 	div(id="login_dialog") 
 		h1 Please Log in/ Sign up 
-		form(name="login_form", action="/login", method="post")
+		form(name="login_form", action="/users/new", method="post")
 			| Log in:
 			input(type="text", name="username")
 			input(type="submit", value="Log in")

@@ -14,5 +14,6 @@ block content
 		each tweet, i in tweets
 			div(value=tweet, id="tweet_id") 
 				| #{tweet.username}
+				br
 				| #{tweet.text_body}
 			br
